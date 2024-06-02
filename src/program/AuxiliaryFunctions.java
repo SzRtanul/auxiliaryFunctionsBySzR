@@ -4,10 +4,15 @@
  */
 package program;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.lang.reflect.Array;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
@@ -73,6 +78,25 @@ public class AuxiliaryFunctions {
         PrintWriter pn = new PrintWriter(new OutputStreamWriter(new FileOutputStream(filename), StandardCharsets.UTF_8));
         pn.print(bem);
         pn.flush();
+    }
+    
+    public static String[] fajltbeolvas(String filename) throws FileNotFoundException, IOException{
+        String[] sorok = new String[fajlsorokszama(filename)];
+        File f = new File(filename);
+        Scanner sc = new Scanner(f, "UTF8");
+        for (int i = 0; sc.hasNext(); i++) {
+            sorok[i] = sc.nextLine();
+        }
+        return sorok;
+    }
+    
+    public static int fajlsorokszama(String filename) throws FileNotFoundException, IOException{
+        int lines = 0;
+        BufferedReader br = new BufferedReader(new FileReader(filename));
+        while (br.readLine() != null) {
+            lines++;
+        }
+        return lines;
     }
     
     public static int tryParse(String bem){
@@ -176,7 +200,7 @@ public class AuxiliaryFunctions {
     }
     
     public static <T> T[] add(T[] items, T newItem){
-        T[] newArray = (T[]) new Object[items.length +1];
+        T[] newArray = (T[]) Array.newInstance(items.getClass().getComponentType(), items.length + 1);
         System.arraycopy(items, 0, newArray, 0, items.length);
         newArray[items.length] = newItem;
         return newArray;

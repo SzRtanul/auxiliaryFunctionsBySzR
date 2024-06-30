@@ -205,4 +205,53 @@ public class AuxiliaryFunctions {
         newArray[items.length] = newItem;
         return newArray;
     }
+    
+    public static byte[] add(byte[] numbers, byte[] newItems){
+        byte[] newArray = new byte[numbers.length + newItems.length];
+        System.arraycopy(numbers, 0, newArray, 0, numbers.length);
+        System.arraycopy(newItems, 0, newArray, numbers.length, newItems.length);
+        return newArray;
+    }
+    
+    public static int[] add(int[] numbers, int[] newItems){
+        int[] newArray = new int[numbers.length + newItems.length];
+        System.arraycopy(numbers, 0, newArray, 0, numbers.length);
+        System.arraycopy(newItems, 0, newArray, numbers.length, newItems.length);
+        return newArray;
+    }
+    
+    public static double[] add(double[] numbers, double[] newItems){
+        double[] newArray = new double[numbers.length + newItems.length];
+        System.arraycopy(numbers, 0, newArray, 0, numbers.length);
+        System.arraycopy(newItems, 0, newArray, numbers.length, newItems.length);
+        return newArray;
+    }
+    
+    public static float[] add(float[] numbers, float[] newItems){
+        float[] newArray = new float[numbers.length + newItems.length];
+        System.arraycopy(numbers, 0, newArray, 0, numbers.length);
+        System.arraycopy(newItems, 0, newArray, numbers.length, newItems.length);
+        return newArray;
+    }
+    
+    public static short[] add(short[] numbers, short[] newItems){
+        short[] newArray = new short[numbers.length + newItems.length];
+        System.arraycopy(numbers, 0, newArray, 0, numbers.length);
+        System.arraycopy(newItems, 0, newArray, numbers.length, newItems.length);
+        return newArray;
+    }
+    
+    public static long[] add(long[] numbers, long[] newItems){
+        long[] newArray = new long[numbers.length + newItems.length];
+        System.arraycopy(numbers, 0, newArray, 0, numbers.length);
+        System.arraycopy(newItems, 0, newArray, numbers.length, newItems.length);
+        return newArray;
+    }
+    
+    public static boolean[] add(boolean[] items, boolean[] newItems){
+        boolean[] newArray = new boolean[items.length + newItems.length];
+        System.arraycopy(items, 0, newArray, 0, items.length);
+        System.arraycopy(newItems, 0, newArray, items.length, newItems.length);
+        return newArray;
+    }
 }
